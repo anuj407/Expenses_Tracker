@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
-
-const mongo_url = 'mongodb://127.0.0.1:27017/Expenses_Tracker';
-
-mongoose.connect(mongo_url)
+const MONGO_URL = process.env.MONGODB_URI
+mongoose.connect(MONGO_URL)
     .then(() => {
         console.log('MongoDB Connected...');
     }).catch((err) => {
