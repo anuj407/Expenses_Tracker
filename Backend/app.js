@@ -8,7 +8,7 @@ var ExpenseRouter = require('./routes/ExpenseRouter')
 var ensureAuthenticated = require('./Middleware/Auth')
 require ('dotenv').config();
 require('./Models/db')
-const PORT = 8080
+const PORT = process.env.PORT || 8080
 app.get('/', (req , res)=>{
     res.send('Hello World from Express')
 })
