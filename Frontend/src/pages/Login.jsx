@@ -1,7 +1,7 @@
 import  { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
-import { APIUrl, handleError, handleSuccess } from '../utils';
+import {  handleError, handleSuccess } from '../utils';
 
 function Login() {
 
@@ -26,7 +26,7 @@ function Login() {
             return handleError('email and password are required')
         }
         try {
-            const url = `${APIUrl}/auth/login`;
+            const url = `https://expenses-tracker-api-xi.vercel.app/auth/login`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
