@@ -12,4 +12,4 @@ export const handleError = (msg) => {
         position: 'top-right'
     })
 }
-export const APIUrl = 'http://localhost:8000';
+export const APIUrl = 'https://expenses-tracker-api-xi.vercel.app';
