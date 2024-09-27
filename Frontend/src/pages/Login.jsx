@@ -29,7 +29,6 @@ function Login() {
             const url = `${APIUrl}/auth/login`;
             const response = await fetch(url, {
                 method: "POST",
-                mode:'navigate',
                 headers: {
                     'Content-Type': 'application/json'
                 },
