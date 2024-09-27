@@ -29,11 +29,13 @@ function Signup() {
             const url = `${APIUrl}/auth/signup`;
             const response = await fetch(url, {
                 method: "POST",
+                mode:'no-cors',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(signupInfo)
             });
+            console.log(response)
             const result = await response.json();
             const { success, message, error } = result;            
             if (success) {
