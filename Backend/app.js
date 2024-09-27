@@ -12,15 +12,19 @@ const PORT = process.env.PORT || 8080
 app.get('/', (req , res)=>{
     res.send('Hello World from Express')
 })
-app.use(cors({
-    origin: 'https://expenses-tracker-frontend-beta.vercel.app', // Specify the exact frontend origin
-    methods: 'GET,POST,PUT,DELETE,OPTIONS',
-    allowedHeaders: ['Content-Type', 'Authorization']
+// Middleware to manually set CORS headers
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://expenses-tracker-frontend-beta.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header('Access-Control-Allow-Credentials', 'true'); // If you need credentials
+    next();
+  });
+  
+  app.use(cors({
+    origin: 'https://expenses-tracker-frontend-beta.vercel.app',
+    credentials: true,  // This is needed to allow credentials (cookies, etc.)
   }));
-  
-  // Enable preflight response handling for CORS
-  app.options('*', cors());
-  
 app.use(bodyParser.json());
 app.use('/auth',AuthRouter)
 app.use('/expenses',ensureAuthenticated, ExpenseRouter)

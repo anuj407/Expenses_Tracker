@@ -26,12 +26,13 @@ function Login() {
             return handleError('email and password are required')
         }
         try {
-            const url = `${APIUrl}/auth/login`;
+            const url = `https://cors-anywhere.herokuapp.com/${APIUrl}/auth/login`;
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                credentials: true,
                 body: JSON.stringify(loginInfo)
             });
             const result = await response.json();
