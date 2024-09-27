@@ -15,7 +15,6 @@ app.get('/', (req , res)=>{
 app.use(bodyParser.json());
   app.use(cors({
     origin: 'https://expenses-tracker-frontend-beta.vercel.app',
-    credentials: true,  // This is needed to allow credentials (cookies, etc.)
   }));
 app.use('/auth',AuthRouter)
 app.use('/expenses',ensureAuthenticated, ExpenseRouter)
