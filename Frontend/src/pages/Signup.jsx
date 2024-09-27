@@ -29,7 +29,7 @@ function Signup() {
             const url = `${APIUrl}/auth/signup`;
             const response = await fetch(url, {
                 method: "POST",
-                mode:'navigate',
+                mode:'same-origin',
                 headers: {
                     'Content-Type': 'application/json'
                 },
