@@ -12,12 +12,11 @@ const PORT = process.env.PORT || 8080
 app.get('/', (req , res)=>{
     res.send('Hello World from Express')
 })
-// Middleware to manually set CORS headers
+app.use(bodyParser.json());
   app.use(cors({
     origin: 'https://expenses-tracker-frontend-beta.vercel.app',
     credentials: true,  // This is needed to allow credentials (cookies, etc.)
   }));
-app.use(bodyParser.json());
 app.use('/auth',AuthRouter)
 app.use('/expenses',ensureAuthenticated, ExpenseRouter)
 
