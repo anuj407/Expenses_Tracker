@@ -12,12 +12,14 @@ const PORT = process.env.PORT || 8080
 app.get('/', (req , res)=>{
     res.send('Hello World from Express')
 })
+const corsOptions = {
+  origin: 'https://expenses-tracker-api-xi.vercel.app', // Allow only this origin
+  methods: ['GET', 'POST','DELETE'], // Allow specific methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
-  app.use(cors({
-    origin: ['https://expenses-tracker-frontend-beta.vercel.app'],
-    methods: ['GET', 'POST', 'DELETE'],
-    credentials: true, // enable set cookie
-  }));
 app.use('/auth',AuthRouter)
 app.use('/expenses',ensureAuthenticated, ExpenseRouter)
 
