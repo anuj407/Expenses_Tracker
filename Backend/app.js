@@ -13,14 +13,6 @@ app.get('/', (req , res)=>{
     res.send('Hello World from Express')
 })
 // Middleware to manually set CORS headers
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://expenses-tracker-frontend-beta.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.header('Access-Control-Allow-Credentials', 'true'); // If you need credentials
-    next();
-  });
-  
   app.use(cors({
     origin: 'https://expenses-tracker-frontend-beta.vercel.app',
     credentials: true,  // This is needed to allow credentials (cookies, etc.)
