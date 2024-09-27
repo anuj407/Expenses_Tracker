@@ -12,13 +12,23 @@ const PORT = process.env.PORT || 8080
 app.get('/', (req , res)=>{
     res.send('Hello World from Express')
 })
+const allowedOrigins = [
+  'https://expenses-tracker-frontend-beta.vercel.app',
+  'https://another-allowed-origin.com' // Add more as needed
+];
+
 const corsOptions = {
-  origin: 'https://expenses-tracker-api-xi.vercel.app', // Allow only this origin
-  methods: ['GET', 'POST','DELETE'], // Allow specific methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
+  origin: (origin, callback) => {
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+          callback(null, true); // Allow the origin
+      } else {
+          callback(new Error('Not allowed by CORS')); // Deny the origin
+      }
+  },
+  methods: ['GET', 'POST', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
-app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use('/auth',AuthRouter)
 app.use('/expenses',ensureAuthenticated, ExpenseRouter)
