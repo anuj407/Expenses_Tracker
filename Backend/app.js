@@ -12,22 +12,9 @@ const PORT = process.env.PORT || 8080
 app.get('/', (req , res)=>{
     res.send('Hello World from Express')
 })
-const allowedOrigins = [
-  'https://expenses-tracker-frontend-beta.vercel.app',
-  'https://another-allowed-origin.com' // Add more as needed
-];
-
-const corsOptions = {
-  origin: (origin, callback) => {
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-          callback(null, true); // Allow the origin
-      } else {
-          callback(new Error('Not allowed by CORS')); // Deny the origin
-      }
-  },
-  methods: ['GET', 'POST', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-};
+app.use(cors({
+    origin:'*'
+}))
 
 app.use(bodyParser.json());
 app.use('/auth',AuthRouter)
