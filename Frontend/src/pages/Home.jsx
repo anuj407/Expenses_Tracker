@@ -120,7 +120,7 @@ function Home() {
     },[])
 
  return (
-        <div className='min-h-[100vh] w-full flex justify-center flex-col py-10'>
+        <div className='min-h-[100vh] w-full flex justify-center flex-col py-10 px-4'>
             <div className='flex text-black items-center justify-between' >          
                 <h1 className='font-semibold text-[1.5rem]'>Welcome {loggedInUser}</h1>
                 <button onClick={handleLogout}>Logout</button>

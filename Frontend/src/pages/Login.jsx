@@ -57,37 +57,39 @@ function Login() {
     }
 
     return (
-        <div className='container'>
-            <h1>Login</h1>
-            <form 
-            onSubmit={handleLogin}
-            >
-                <div>
-                    <label htmlFor='email'>Email</label>
-                    <input
-                        onChange={handleChange}
-                        type='email'
-                        name='email'
-                        placeholder='Enter your email...'
-                        value={loginInfo.email}
-                    />
-                </div>
-                <div>
-                    <label htmlFor='password'>Password</label>
-                    <input
-                        onChange={handleChange}
-                        type='password'
-                        name='password'
-                        placeholder='Enter your password...'
-                        value={loginInfo.password}
-                    />
-                </div>
-                <button type='submit'>Login</button>
-                <span> ${`Does't have an account ?`}
-                    <Link to="/signup">Signup</Link>
-                </span>
-            </form>
-            <ToastContainer />
+        <div className="h-screen flex items-center">
+            <div className='container login items-center  w-[23rem]'>
+                <h1 className='font-semibold'>Login</h1>
+                <form 
+                onSubmit={handleLogin}
+                >
+                    <div>
+                        <label htmlFor='email'>Email</label>
+                        <input
+                            onChange={handleChange}
+                            type='email'
+                            name='email'
+                            placeholder='Enter your email...'
+                            value={loginInfo.email}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor='password'>Password</label>
+                        <input
+                            onChange={handleChange}
+                            type='password'
+                            name='password'
+                            placeholder='Enter your password...'
+                            value={loginInfo.password}
+                        />
+                    </div>
+                    <button type='submit'>Login</button>
+                    <span> ${`Does't have an account ?`}
+                        <Link to="/signup" className='text-purple-900 font-medium underline'>Signup</Link>
+                    </span>
+                </form>
+                <ToastContainer />
+            </div>
         </div>
     )
 }

@@ -28,8 +28,8 @@ function ExpenseForm({ addTransaction }) {
     }
 
     return (
-        <div className='container'>
-            <h1>Expense Tracker</h1>
+        <div className='container sm:w-[22rem] w-[90vw]'>
+            <h1 className='font-semibold'>Expense Tracker</h1>
             <form onSubmit={addExpenses}>
                 <div>
                     <label htmlFor='text'>Expense Detail</label>

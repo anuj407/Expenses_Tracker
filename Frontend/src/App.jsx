@@ -13,7 +13,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App font-serif">
       <RefrshHandler setIsAuthenticated={setIsAuthenticated} />
       <Routes>
         <Route path='/' element={<Navigate to="/login" />} />
