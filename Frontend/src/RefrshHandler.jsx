@@ -17,7 +17,6 @@ function RefrshHandler({ setIsAuthenticated }) {
             }
         }
     }, [location, navigate, setIsAuthenticated])
-
     return (
         null
     )

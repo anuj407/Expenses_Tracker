@@ -66,8 +66,7 @@ function Home() {
             const url = `${APIUrl}/expenses`;
             const headers = {
                 headers: {
-                    'Authorization': localStorage.getItem('token'),
-                    
+                    'Authorization': localStorage.getItem('token'),                    
                 },
                 method: "GET",
                 
@@ -122,7 +121,7 @@ function Home() {
     },[])
 
     return (
-        <div>
+        <div className='Home'>
             <div className='user-section'>
                 <h1>Welcome {loggedInUser}</h1>
                 <button onClick={handleLogout}>Logout</button>
