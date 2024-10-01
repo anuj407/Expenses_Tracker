@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 const ExpenseTable = ({ expenses, deleteExpens }) => {
-
+      
     return (
         <div className="expense-list">
             {expenses.map((expense, index) => (
@@ -10,9 +10,9 @@ const ExpenseTable = ({ expenses, deleteExpens }) => {
                         deleteExpens(expense._id)}>X</button>
                     <div className="expense-description">{expense.text}</div>
                     <div
-                        className="expense-amount"
+                        className="expense-amount "
                         style={{ color: expense.amount > 0 ? '#27ae60' : '#c0392b' }}
-                    >₹{expense.amount}</div>
+                    >₹{expense.amount} <div className="text-gray-600 text-[0.8rem]">{expense.date}</div> </div>
                 </div>
             ))}
         </div>

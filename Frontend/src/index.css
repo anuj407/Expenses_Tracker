@@ -1,4 +1,6 @@
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 *,
 ::before,
 ::after{
@@ -20,7 +22,6 @@ body{
 body{
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .container{
@@ -70,13 +71,7 @@ button{
   cursor: pointer;
   margin: 10px 0;
 }
-.Home{
-  height: 100vh;
-}
-.user-section{
-  display: flex;
-  justify-content: space-between;
-}
+
 
 /* Minimal styling for the expense list */
 .expense-list {

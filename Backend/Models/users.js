@@ -1,6 +1,5 @@
-const { text } = require('body-parser');
+
 var mongoose = require('mongoose');
-// var plm = require("passport-local-mongoose")
 
 schema = new mongoose.Schema({
   name:{
@@ -33,5 +32,4 @@ schema = new mongoose.Schema({
     }
   ] 
 })
-// schema.plugin(plm);
 module.exports = mongoose.model('User', schema);

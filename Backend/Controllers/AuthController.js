@@ -15,8 +15,7 @@ const signup = async (req, res) => {
        // Encrypt the password
        newUser.password = await bcrypt.hash(password,10);
        await newUser.save();
-       res.status(201).json({message: "User registered successfully", success: true})
-       
+       res.status(201).json({message: "User registered successfully", success: true})       
     }
     catch(err){
         res.status(500).json({message: err.message ,success : false})
@@ -40,8 +39,7 @@ const login = async (req, res) => {
        },
        process.env.JWT_SECRET,
        {expiresIn: '24h'}
-    )
-       
+    )       
        res.status(200).json({message: "Login successfully", success: true , jwtToken , email , name: user.name})
     }
     catch(err){
